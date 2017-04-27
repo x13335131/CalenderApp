@@ -2,7 +2,8 @@ import { Component } from '@angular/core'
 //import { Http } from '@angular/http';
 import { Http, Response } from '@angular/http'
 import { Injectable } from '@angular/core'
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map' 
+import  appointment 
 @Component({
     selector: 'my-app',
     templateUrl: 'app.component.html',
@@ -10,11 +11,19 @@ import 'rxjs/add/operator/map'
     moduleId: module.id
 })
 
+//@Injectable()
+//export class HTTPTestService {
+//        constructor (private http: Http){
+//    }
+//        getCurrentTime() {
+//            return this.http.get('http://date.jsontest.com')
+//                .map(res => res.json());
+//        }
+//}
 export class AppComponent  {
 
     
     onClick(m: any) {
-            
      }
         //description array
         extraAptInfo: Array<desc>;

@@ -118,7 +118,7 @@
     <Content Include="app\app.component.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
-    <Content Include="Service References\MyService\Angular2_web_app1.MyService.HelloWorldResponse.datasource">
+    <Content Include="Service References\MyService\Angular2_web_app1.MyService.GetAppointmentsJSONResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\MyService\WebService1.disco" />

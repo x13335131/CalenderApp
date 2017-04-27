@@ -15,27 +15,27 @@ namespace Angular2_web_app1.MyService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyService.WebService1Soap")]
     public interface WebService1Soap {
         
-        // CODEGEN: Generating message contract since element name HelloWorldResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        Angular2_web_app1.MyService.HelloWorldResponse HelloWorld(Angular2_web_app1.MyService.HelloWorldRequest request);
+        // CODEGEN: Generating message contract since element name GetAppointmentsJSONResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAppointmentsJSON", ReplyAction="*")]
+        Angular2_web_app1.MyService.GetAppointmentsJSONResponse GetAppointmentsJSON(Angular2_web_app1.MyService.GetAppointmentsJSONRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<Angular2_web_app1.MyService.HelloWorldResponse> HelloWorldAsync(Angular2_web_app1.MyService.HelloWorldRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAppointmentsJSON", ReplyAction="*")]
+        System.Threading.Tasks.Task<Angular2_web_app1.MyService.GetAppointmentsJSONResponse> GetAppointmentsJSONAsync(Angular2_web_app1.MyService.GetAppointmentsJSONRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest {
+    public partial class GetAppointmentsJSONRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public Angular2_web_app1.MyService.HelloWorldRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAppointmentsJSON", Namespace="http://tempuri.org/", Order=0)]
+        public Angular2_web_app1.MyService.GetAppointmentsJSONRequestBody Body;
         
-        public HelloWorldRequest() {
+        public GetAppointmentsJSONRequest() {
         }
         
-        public HelloWorldRequest(Angular2_web_app1.MyService.HelloWorldRequestBody Body) {
+        public GetAppointmentsJSONRequest(Angular2_web_app1.MyService.GetAppointmentsJSONRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -44,9 +44,9 @@ namespace Angular2_web_app1.MyService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class HelloWorldRequestBody {
+    public partial class GetAppointmentsJSONRequestBody {
         
-        public HelloWorldRequestBody() {
+        public GetAppointmentsJSONRequestBody() {
         }
     }
     
@@ -54,15 +54,15 @@ namespace Angular2_web_app1.MyService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse {
+    public partial class GetAppointmentsJSONResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Angular2_web_app1.MyService.HelloWorldResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAppointmentsJSONResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Angular2_web_app1.MyService.GetAppointmentsJSONResponseBody Body;
         
-        public HelloWorldResponse() {
+        public GetAppointmentsJSONResponse() {
         }
         
-        public HelloWorldResponse(Angular2_web_app1.MyService.HelloWorldResponseBody Body) {
+        public GetAppointmentsJSONResponse(Angular2_web_app1.MyService.GetAppointmentsJSONResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -71,16 +71,16 @@ namespace Angular2_web_app1.MyService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class HelloWorldResponseBody {
+    public partial class GetAppointmentsJSONResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
+        public string GetAppointmentsJSONResult;
         
-        public HelloWorldResponseBody() {
+        public GetAppointmentsJSONResponseBody() {
         }
         
-        public HelloWorldResponseBody(string HelloWorldResult) {
-            this.HelloWorldResult = HelloWorldResult;
+        public GetAppointmentsJSONResponseBody(string GetAppointmentsJSONResult) {
+            this.GetAppointmentsJSONResult = GetAppointmentsJSONResult;
         }
     }
     
@@ -112,26 +112,26 @@ namespace Angular2_web_app1.MyService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Angular2_web_app1.MyService.HelloWorldResponse Angular2_web_app1.MyService.WebService1Soap.HelloWorld(Angular2_web_app1.MyService.HelloWorldRequest request) {
-            return base.Channel.HelloWorld(request);
+        Angular2_web_app1.MyService.GetAppointmentsJSONResponse Angular2_web_app1.MyService.WebService1Soap.GetAppointmentsJSON(Angular2_web_app1.MyService.GetAppointmentsJSONRequest request) {
+            return base.Channel.GetAppointmentsJSON(request);
         }
         
-        public string HelloWorld() {
-            Angular2_web_app1.MyService.HelloWorldRequest inValue = new Angular2_web_app1.MyService.HelloWorldRequest();
-            inValue.Body = new Angular2_web_app1.MyService.HelloWorldRequestBody();
-            Angular2_web_app1.MyService.HelloWorldResponse retVal = ((Angular2_web_app1.MyService.WebService1Soap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
+        public string GetAppointmentsJSON() {
+            Angular2_web_app1.MyService.GetAppointmentsJSONRequest inValue = new Angular2_web_app1.MyService.GetAppointmentsJSONRequest();
+            inValue.Body = new Angular2_web_app1.MyService.GetAppointmentsJSONRequestBody();
+            Angular2_web_app1.MyService.GetAppointmentsJSONResponse retVal = ((Angular2_web_app1.MyService.WebService1Soap)(this)).GetAppointmentsJSON(inValue);
+            return retVal.Body.GetAppointmentsJSONResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Angular2_web_app1.MyService.HelloWorldResponse> Angular2_web_app1.MyService.WebService1Soap.HelloWorldAsync(Angular2_web_app1.MyService.HelloWorldRequest request) {
-            return base.Channel.HelloWorldAsync(request);
+        System.Threading.Tasks.Task<Angular2_web_app1.MyService.GetAppointmentsJSONResponse> Angular2_web_app1.MyService.WebService1Soap.GetAppointmentsJSONAsync(Angular2_web_app1.MyService.GetAppointmentsJSONRequest request) {
+            return base.Channel.GetAppointmentsJSONAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Angular2_web_app1.MyService.HelloWorldResponse> HelloWorldAsync() {
-            Angular2_web_app1.MyService.HelloWorldRequest inValue = new Angular2_web_app1.MyService.HelloWorldRequest();
-            inValue.Body = new Angular2_web_app1.MyService.HelloWorldRequestBody();
-            return ((Angular2_web_app1.MyService.WebService1Soap)(this)).HelloWorldAsync(inValue);
+        public System.Threading.Tasks.Task<Angular2_web_app1.MyService.GetAppointmentsJSONResponse> GetAppointmentsJSONAsync() {
+            Angular2_web_app1.MyService.GetAppointmentsJSONRequest inValue = new Angular2_web_app1.MyService.GetAppointmentsJSONRequest();
+            inValue.Body = new Angular2_web_app1.MyService.GetAppointmentsJSONRequestBody();
+            return ((Angular2_web_app1.MyService.WebService1Soap)(this)).GetAppointmentsJSONAsync(inValue);
         }
     }
 }
