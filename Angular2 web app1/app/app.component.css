@@ -1,0 +1,98 @@
+﻿.body-content {
+        padding-top: 30px;
+    }
+h1{
+    font-family:'Comic Sans MS';
+    color:hotpink;
+}
+
+.topNav li{
+    display: inline;
+    padding-right:8px;
+   
+}
+li.link-active a,
+li.link-active a:hover,
+li.link-active a:focus {
+    background-color:#ff99bb;
+    color: white;
+  cursor: pointer;
+
+}
+ .navbar-collapse  {
+       width: 100%;
+        padding: 0px;
+    }
+    .navbar ul {
+        float: right;
+    }
+    .navbar li {
+        float: left;
+        font-size: 15px;
+        margin: 6px;
+        display: inline;
+
+    }
+    .navbar li:target {
+    border: 2px solid #D4D4D4;
+    background-color: red;
+}
+    .navbar li a {
+        padding: 10px 16px;
+        border-radius: 4px;
+    }
+.navbar a {
+    width: 100%;
+    white-space: nowrap;
+    cursor:pointer;
+    color:pink;
+}
+
+  .monthClick{
+      color:hotpink;
+      cursor:pointer;
+      font-family:'Comic Sans MS';
+  } 
+  .monthClick:hover{
+      color:white;
+      background-color:pink;
+      border-radius: 2px;
+      cursor:pointer;
+  }
+   tr{
+       border:hidden;
+   }
+
+   #table_apts{
+       font-family:'Comic Sans MS';
+        border: 2px solid hotpink;
+        border-radius: 4px;
+        background-color:pink;
+        width:20%;
+        float:left;
+   }
+   #table_apts td{
+    padding-left:15px;
+}
+    #table_desc {
+        font-family: 'Comic Sans MS';
+        border-radius: 4px;
+        background-color: pink;
+        width: 20%;
+        float: left;
+        margin-left: 4px;
+    }
+
+   #table_desc td {
+            text-align: left;
+            padding-left: 4px;
+        }
+
+    th {
+        font-weight: bold;
+        font-size: 11px;
+    }
+
+  .link{
+      cursor:pointer;
+  }

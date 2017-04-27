@@ -1,0 +1,106 @@
+﻿
+<body class="body-content">
+    <h1>Choose your month</h1>
+    <!--months nav-->
+    <div class='navbar-collapse collapse'>
+        <ul class='topNav'>
+            <li>
+                <a class="monthClick" (click)="onClick('jan')">
+                    Jan
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('feb')">
+                    Feb
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('mar')">
+                    March
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('april')">
+                    April
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('may')">
+                    May
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('june')">
+                    June
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('july')">
+                    July
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('aug')">
+                    Aug
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('sept')">
+                    Sept
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('oct')">
+                    Oct
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('nov')">
+                    Nov
+                </a>
+            </li>
+            <li>
+                <a class="monthClick" (click)="onClick('dec')">
+                    December
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--APPOINTMENTS TABLE-->
+    <p *ngIf="!appointments"><em>Loading Appointments...</em></p>
+    <div id="table_apts">
+        <table class='table' *ngIf="appointments">
+            <thead>
+                <tr>
+
+                    <th>DATE</th>
+                    <th>TIME</th>
+                    <th>MESSAGE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of appointments">
+
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.time }}</td>
+                    <td><a class="link" (click)="onSelect(appointment)">{{ appointment.description}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!---DESCRIPTION TABLE-->
+    <div id="table_desc">
+        <table class='table' *ngIf="extraAptInfo">
+
+            <tbody *ngFor="let desc of extraAptInfo">
+
+                <tr><th>DESCRIPTION: </th><td>{{desc.descDescription}}</td></tr>
+                <tr><th>DATE: </th><td>{{desc.descDate }}</td></tr>
+                <tr><th>ORGANIZER: </th><td>{{desc.descOrganizer }}</td></tr>
+                <tr><th>ATTENDEES: </th><td><ul *ngFor="let attend of desc.descAttendees"><li>{{attend}}</li></ul></td></tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>

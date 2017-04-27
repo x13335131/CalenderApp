@@ -1,0 +1,69 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+
+    //get appointment from each selected month
+
+    var getAppointment = {
+        onClick: function (m) {
+            var appointment = [];
+            switch (m) {
+                case 'jan':
+                   appointment=('meet mary for lunch')
+
+                    break;
+                case 'feb':
+                    appointment=('football')
+
+                    break;
+                case 'mar':
+                    appointment=('meet tutor for extra classes')
+
+                    break;
+                default:
+                    console.log('no month selected');
+                    break;
+            }
+            return appointment;
+        }
+    }
+    describe('getAppointment', function () {
+
+        it('get appointment based on month', function () {
+            expect(getAppointment.onClick('jan')).toEqual('meet mary for lunch');
+        });
+
+    });
+
+
+    //swap function//
+    var getAttendee = {
+        toArray: function (attendee) {
+            var input = attendee;
+            var fields = input.split(',');
+            var attend = [];
+            for (var i = 0; i < fields.length; i++) {
+                attend.push(fields[i]);
+            }
+            return attend;
+        }
+    }
+
+    describe('getAttendee', function () {
+
+        it('change from string to array of names/attendees', function () {
+            expect(getAttendee.toArray('jess, john, rose')).toEqual(["jess", " john", " rose"]);
+        });
+
+    });
+
+
+</script>
+</html>

@@ -1,0 +1,19 @@
+~index.html~
+ in this case im using this as a navigation page. Here it loads the calandar.component.main file from the app folder.
+
+~calandar.component.main.ts~
+ here, the bootstrap function is called. it reads the calandar component metadata, 
+ finds the 'calandar' selector, locates an element tag named 'calandar' in index.html, and loads the application between those tags.
+
+~calandar.component.ts~
+ contains info on calandar component. instead of directly writing the content beside template i have it written in an external file.('calandar.html') 
+ so here i just produce the url and similarly with the css. The export class CalandarComponent contains functionality for my template.
+
+~calandar.component.html~ 
+html coded template. this is the actual content of the page.(headings, tables etc)
+
+~calandar.component.css~
+ this is the design/style of the web app
+
+
+
