@@ -72,7 +72,6 @@
         <table class='table' *ngIf="appointments">
             <thead>
                 <tr>
-
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>MESSAGE</th>
@@ -80,7 +79,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let appointment of appointments">
-
                     <td>{{ appointment.date }}</td>
                     <td>{{ appointment.time }}</td>
                     <td><a class="link" (click)="onSelect(appointment)">{{ appointment.description}}</a></td>
@@ -91,16 +89,12 @@
     <!---DESCRIPTION TABLE-->
     <div id="table_desc">
         <table class='table' *ngIf="extraAptInfo">
-
             <tbody *ngFor="let desc of extraAptInfo">
-
                 <tr><th>DESCRIPTION: </th><td>{{desc.descDescription}}</td></tr>
                 <tr><th>DATE: </th><td>{{desc.descDate }}</td></tr>
                 <tr><th>ORGANIZER: </th><td>{{desc.descOrganizer }}</td></tr>
                 <tr><th>ATTENDEES: </th><td><ul *ngFor="let attend of desc.descAttendees"><li>{{attend}}</li></ul></td></tr>
-
             </tbody>
         </table>
     </div>
-
 </body>

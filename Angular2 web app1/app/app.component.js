@@ -8,12 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-require('rxjs/add/operator/map');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var api_service_1 = require("./api.service");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(service) {
+        this.service = service;
+        this.isLoading = false;
     }
     AppComponent.prototype.onClick = function (m) {
+        var _this = this;
+        console.log('m =======' + m);
+        this.isLoading = true;
+        this.service.getMonth(m).subscribe(function (res) {
+            console.log('month=======' + m);
+            _this.appointments = res;
+            console.log('json: ' + m);
+            _this.isLoading = false;
+        });
     };
     // onSelect function
     AppComponent.prototype.onSelect = function (o) {
@@ -40,17 +52,18 @@ var AppComponent = (function () {
         console.log(attend);
         return attend; //return this array back to desc object
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            styleUrls: ['app.component.css'],
-            moduleId: module.id
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    core_1.Component({
+        selector: 'my-app',
+        templateUrl: 'app.component.html',
+        styleUrls: ['app.component.css'],
+        moduleId: module.id,
+        providers: [api_service_1.ApiService]
+    }),
+    __metadata("design:paramtypes", [api_service_1.ApiService])
+], AppComponent);
 exports.AppComponent = AppComponent;
 var desc = (function () {
     function desc(descDate, descDescription, descOrganizer, descAttendees) {
@@ -62,4 +75,10 @@ var desc = (function () {
     return desc;
 }());
 exports.desc = desc;
+var appointment = (function () {
+    function appointment() {
+    }
+    return appointment;
+}());
+exports.appointment = appointment;
 //# sourceMappingURL=app.component.js.map
