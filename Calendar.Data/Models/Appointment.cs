@@ -10,7 +10,7 @@ namespace Calendar.Data.Models
     {
         [Key]
         public int AppointmentID { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime AptDate { get; set; }
         public string Description { get; set; }
         public int OrganizerID { get; set; }
         public Contact Organizer { get; set; }

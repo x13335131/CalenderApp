@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular2 web app1", "Angular2 web app1\Angular2 web app1.csproj", "{AA52C849-5458-4F60-941C-70E053C1761A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.Data", "Calendar.Data\Calendar.Data.csproj", "{A9DD522D-AE31-402D-847F-59D86F73127D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarDatabase", "CalendarDatabase\CalendarDatabase.csproj", "{54EB8583-2BFD-448C-B091-80C0C55FF32B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{AA52C849-5458-4F60-941C-70E053C1761A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA52C849-5458-4F60-941C-70E053C1761A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA52C849-5458-4F60-941C-70E053C1761A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9DD522D-AE31-402D-847F-59D86F73127D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9DD522D-AE31-402D-847F-59D86F73127D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9DD522D-AE31-402D-847F-59D86F73127D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9DD522D-AE31-402D-847F-59D86F73127D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54EB8583-2BFD-448C-B091-80C0C55FF32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54EB8583-2BFD-448C-B091-80C0C55FF32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54EB8583-2BFD-448C-B091-80C0C55FF32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54EB8583-2BFD-448C-B091-80C0C55FF32B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -215,6 +215,30 @@
     <Compile Include="Migrations\201705101324116_new database.Designer.cs">
       <DependentUpon>201705101324116_new database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705111032223_fixing tables.cs" />
+    <Compile Include="Migrations\201705111032223_fixing tables.Designer.cs">
+      <DependentUpon>201705111032223_fixing tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705111105380_fixing contacts.cs" />
+    <Compile Include="Migrations\201705111105380_fixing contacts.Designer.cs">
+      <DependentUpon>201705111105380_fixing contacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705111128244_ColNames.cs" />
+    <Compile Include="Migrations\201705111128244_ColNames.Designer.cs">
+      <DependentUpon>201705111128244_ColNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705111144399_deleting contact stuff.cs" />
+    <Compile Include="Migrations\201705111144399_deleting contact stuff.Designer.cs">
+      <DependentUpon>201705111144399_deleting contact stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705111153553_restoring contact stuff.cs" />
+    <Compile Include="Migrations\201705111153553_restoring contact stuff.Designer.cs">
+      <DependentUpon>201705111153553_restoring contact stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705111411290_test.cs" />
+    <Compile Include="Migrations\201705111411290_test.Designer.cs">
+      <DependentUpon>201705111411290_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -321,6 +345,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705101324116_new database.resx">
       <DependentUpon>201705101324116_new database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111032223_fixing tables.resx">
+      <DependentUpon>201705111032223_fixing tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111105380_fixing contacts.resx">
+      <DependentUpon>201705111105380_fixing contacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111128244_ColNames.resx">
+      <DependentUpon>201705111128244_ColNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111144399_deleting contact stuff.resx">
+      <DependentUpon>201705111144399_deleting contact stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111153553_restoring contact stuff.resx">
+      <DependentUpon>201705111153553_restoring contact stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111411290_test.resx">
+      <DependentUpon>201705111411290_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

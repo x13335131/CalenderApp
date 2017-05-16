@@ -14,9 +14,8 @@ namespace Calendar.Data.Models
     {
         [Key]
         public int ID { get; set; }
-        public MonthName? AptsMonth { get; set; }
+        public MonthName? AptMonth { get; set; }
         public int AppointmentID { get; set; }
-        public int random { get; set; }
         public virtual ICollection<Appointment> Appointments { get; set; }
     }
 }

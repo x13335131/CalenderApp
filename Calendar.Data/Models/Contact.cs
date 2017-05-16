@@ -15,6 +15,7 @@ namespace Calendar.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public string Ran { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }
     }

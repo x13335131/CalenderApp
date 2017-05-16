@@ -12,10 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MonthName)
+            @Html.DisplayNameFor(model => model.AptsMonth)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AppointmentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.random)
         </th>
         <th></th>
     </tr>
@@ -23,10 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.MonthName)
+            @Html.DisplayFor(modelItem => item.AptsMonth)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AppointmentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.random)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
