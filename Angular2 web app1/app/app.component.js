@@ -18,13 +18,12 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.onClick = function (m) {
         var _this = this;
-        console.log('m =======' + m);
         this.isLoading = true;
-        this.service.getMonth(m).subscribe(function (res) {
-            console.log('month=======' + m);
-            _this.appointments = res;
-            console.log('json: ' + m);
-            _this.isLoading = false;
+        this.service.get(function (json) {
+            if (json) {
+                _this.appointments = json;
+                _this.isLoading = false;
+            }
         });
     };
     // onSelect function

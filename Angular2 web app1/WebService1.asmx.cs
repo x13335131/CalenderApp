@@ -8,6 +8,8 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.Services.Description;
 using System.Web.Script.Serialization;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Angular2_web_app1
 {
@@ -19,7 +21,7 @@ namespace Angular2_web_app1
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    
+
     public class appointment
     {
         public int id { get; set; }
@@ -31,83 +33,75 @@ namespace Angular2_web_app1
     }
     public class WebService1 : System.Web.Services.WebService
     {
-
+        
+        string result;
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
-        public void GetAppointmentsJSON(string mo)
+        public string GetAppointmentsJSON()
         {
-            string mon = mo;
-            Console.WriteLine("ayy");
-            if (mon == "jan")
-            {
-                appointment[] apts = new appointment[] {
+            SqlConnection connexion = new SqlConnection();
+            List<appointment> apts = new List<appointment>();
+            using (connexion) {
 
-                new appointment()
-                {
-                    id = 1,
-                    date = "12/1/16",
-                    time = "1pm",
-                    description = "meet mary for lunch",
-                    organizer = "mary maguire",
-                    attendees = "mary maguire, rachel simons"
-                },
+          
+                    SqlCommand cmd = new SqlCommand(" select Description from Appointments", connexion);
+                    connexion.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionWebService"].ToString();
+                    connexion.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                    var apt = new appointment();
+                    apt.id = Convert.ToInt32(dr[0]);
+                    apt.date = dr[1].ToString();
+                    apt.description = dr[2].ToString();
+                    apt.time = "00.00";
+                    apt.organizer = "Joan";
+                    apt.attendees = "sarah";
+
+                    apts.Add(apt);
+                    }
+                
+                    dr.Close();
+                    connexion.Close();
+                return apts;
+            }
+                
+            /*appointment[] apts = new appointment[] {
                     new appointment()
                     {
-                        id = 2,
-                        date = "13/1/16",
-                        time = "4pm",
-                        description = "do project",
-                        organizer = "rachel simmons",
-                        attendees = " rachel simons"
+                        id=1,
+                        date= "12/1/16",
+                        time= "1pm",
+                        description="meet mary for lunch",
+                        organizer="mary maguire",
+                        attendees="mary maguire, rachel simons"
+                    },
+                    new appointment()
+                    {
+                        id=2,
+                        date= "13/1/16",
+                        time= "1pm",
+                        description="meet mary for lunch",
+                        organizer="mary maguire",
+                        attendees="mary maguire, rachel simons"
                     },
                        new appointment()
-                       {
-                           id = 3,
-                           date = "13/1/16",
-                           time = "9pm",
-                           description = "watch football final",
-                           organizer = "gary brien",
-                           attendees = "gary brien', 'gary brien, sarah breen, ashley foley"
-                       }
-                };
+                    {
+                        id=3,
+                        date= "13/1/16",
+                        time= "1pm",
+                        description="meet mary for lunch",
+                        organizer="mary maguire",
+                        attendees="mary maguire, rachel simons"
+                    }
+                };*/
 
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                Context.Response.Clear();
-                Context.Response.ContentType = "application/json";
-                Context.Response.Write(js.Serialize(apts));
-            }else { Console.WriteLine("");}
+          /*  JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Clear();
+            Context.Response.ContentType = "application/json";
+            Context.Response.Write(js.Serialize(apts));*/
         }
+
     }
-        
-        
-        //public class Employee
-        //{
-        //    public int Id { get; set; }
-        //    public string Name { get; set; }
-        //    public int Salary { get; set; }
-        //}
-        //public class WebService1 : System.Web.Services.WebService
-        //{
-        //    [WebMethod]
-        //    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        //    public string GetEmployessJSON()
-        //    {
-        //        Employee[] emps = new Employee[] {
-        //        new Employee()
-        //        {
-        //            Id=101,
-        //            Name="Nitin",
-        //            Salary=10000
-        //        },
-        //        new Employee()
-        //        {
-        //            Id=102,
-        //            Name="Dinesh",
-        //            Salary=100000
-        //        }
-        //    };
-        //        return new JavaScriptSerializer().Serialize(emps);
-        //    }
-        //}
-    
 }

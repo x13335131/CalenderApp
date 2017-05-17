@@ -15,12 +15,9 @@ var core_1 = require("@angular/core");
 var ApiService = (function () {
     function ApiService(http) {
         this.http = http;
-        this.mth = '';
     }
-    ApiService.prototype.getMonth = function (month) {
-        this.mth = month;
-        console.log('mth:' + this.mth);
-        return this.http.get("WebService1.asmx/GetAppointmentsJSON").map(function (response) { return response.json(); });
+    ApiService.prototype.get = function (onNext) {
+        this.http.get("webservice1.asmx/GetAppointmentsJSON").map(function (response) { return response.json(); }).subscribe(onNext);
     };
     return ApiService;
 }());

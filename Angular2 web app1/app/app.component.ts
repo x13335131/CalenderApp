@@ -14,24 +14,17 @@ export class AppComponent {
     //description array
     appointments: Array<appointment>;
     extraAptInfo: Array<desc>;
-    month: string;
     constructor(private service: ApiService) { }
 
     onClick(m: any) {
-        console.log('m =======' + m);
         this.isLoading = true;
-        this.service.getMonth(m).subscribe(res => {
-            console.log('month=======' + m);
-
-            this.appointments = res;
-            console.log('json: ' + m);
-            this.isLoading = false;
-
-
-
+        this.service.get(json => {
+            if (json) {
+                this.appointments = json;
+                this.isLoading = false;
+            }
         });
     }
-
 
     // onSelect function
     onSelect(o: appointment) {
