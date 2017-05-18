@@ -37,35 +37,41 @@ namespace Angular2_web_app1
         string result;
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
-        public string GetAppointmentsJSON()
+        public void GetAppointmentsJSON()
         {
-            SqlConnection connexion = new SqlConnection();
-            List<appointment> apts = new List<appointment>();
-            using (connexion) {
-
-          
-                    SqlCommand cmd = new SqlCommand(" select Description from Appointments", connexion);
-                    connexion.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionWebService"].ToString();
-                    connexion.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
-                    {
-                    var apt = new appointment();
-                    apt.id = Convert.ToInt32(dr[0]);
-                    apt.date = dr[1].ToString();
-                    apt.description = dr[2].ToString();
-                    apt.time = "00.00";
-                    apt.organizer = "Joan";
-                    apt.attendees = "sarah";
-
-                    apts.Add(apt);
-                    }
+            
+             List<appointment> apts = new List<appointment>();
+            try
+            {
+                SqlConnection connexion = new SqlConnection();
+                SqlCommand cmd = new SqlCommand(" select * from Appointments", connexion);
+                connexion.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionWebService"].ToString();
+                connexion.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
                 
-                    dr.Close();
-                    connexion.Close();
-                return apts;
+                while (dr.HasRows==true)
+                {
+                    appointment a = new appointment();
+                    dr.Read();
+                        //  result = dr[0].ToString()+dr[1].ToString();
+                        a.id = Convert.ToInt32(dr[0]);
+                        a.date = dr[1].ToString();
+                        a.description = dr[2].ToString();
+                        a.organizer = dr[3].ToString();
+                        a.time = "5.00";
+                        a.attendees = "mary, rachel";
+
+                    apts.Add(a);
+                    
+                }
+                dr.Close();
+                connexion.Close();
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine(" " + ex);
+            }
+         //   return "Appointment: " + result;
                 
             /*appointment[] apts = new appointment[] {
                     new appointment()
@@ -96,11 +102,13 @@ namespace Angular2_web_app1
                         attendees="mary maguire, rachel simons"
                     }
                 };*/
-
-          /*  JavaScriptSerializer js = new JavaScriptSerializer();
+               
+           JavaScriptSerializer js = new JavaScriptSerializer();
             Context.Response.Clear();
             Context.Response.ContentType = "application/json";
-            Context.Response.Write(js.Serialize(apts));*/
+            Context.Response.Write(js.Serialize(apts));
+
+          //  return "appointment:"+result;
         }
 
     }
