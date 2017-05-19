@@ -17,7 +17,8 @@ var ApiService = (function () {
         this.http = http;
     }
     ApiService.prototype.get = function (onNext) {
-        this.http.get("webservice1.asmx/GetAppointmentsJSON").map(function (response) { return response.json(); }).subscribe(onNext);
+        this.http.get("webservice1.asmx/GetAppointmentsJSON?m=" + http_1.Http).map(function (response) { return response.json(); }).subscribe(onNext);
+        // this.http.get("webservice1.asmx/GetAppointmentsJSON?m=jan").map(response => response.json()).subscribe(onNext);
     };
     return ApiService;
 }());

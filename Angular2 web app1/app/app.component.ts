@@ -15,12 +15,13 @@ export class AppComponent {
     appointments: Array<appointment>;
     extraAptInfo: Array<desc>;
     constructor(private service: ApiService) { }
-
+    
     onClick(m: any) {
+        console.log('month: '+m);
         this.isLoading = true;
         this.service.get(json => {
-            if (json) {
-                this.appointments = json;
+            if (json(m)) {
+                this.appointments = json(m);
                 this.isLoading = false;
             }
         });

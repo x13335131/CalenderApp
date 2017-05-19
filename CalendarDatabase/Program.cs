@@ -25,23 +25,23 @@ namespace CalendarDatabase
 
                 //enter date
                 Console.Write("Enter a date for your appointment: ");
-                Console.Write("Enter day: (DD) ");
+                Console.Write("Enter day: (DD:) ");
                 int dd = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter month (MM) ");
+                Console.Write("Enter month (MM): ");
                 int  mm = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter year (YYYY) ");
+                Console.Write("Enter year (YYYY): ");
                 int yyyy = Convert.ToInt32(Console.ReadLine());
                 DateTime date = new DateTime(yyyy, mm, dd);
 
                 //enter organizer name
-                Console.WriteLine("Organiser name");
-                Console.Write("Enter your first name ");
+                Console.WriteLine("Organiser name: ");
+                Console.Write("Enter your first name: ");
                 var fname = Console.ReadLine();
-                Console.Write("Enter your surname ");
+                Console.Write("Enter your surname: ");
                 var lname = Console.ReadLine();
-                Console.Write("Enter your Id number:");
+                Console.Write("Enter your Id number: ");
                 int organiserid = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter your email ");
+                Console.Write("Enter your email: ");
                 var email = Console.ReadLine();
                 Program p = new Program();
                 Contact organizer = new Contact { ContactID = p.contactID() , FirstName =fname, LastName=lname, Email=email};

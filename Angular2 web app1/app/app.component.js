@@ -18,10 +18,11 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.onClick = function (m) {
         var _this = this;
+        console.log('month: ' + m);
         this.isLoading = true;
         this.service.get(function (json) {
-            if (json) {
-                _this.appointments = json;
+            if (json(m)) {
+                _this.appointments = json(m);
                 _this.isLoading = false;
             }
         });
