@@ -13,14 +13,25 @@ export class AppComponent {
     isLoading: boolean = false;
     public month: string;
     //description array
-    appointments: Array<appointment>;
+   public appointments: Array<appointment>;
     extraAptInfo: Array<desc>;
     constructor(private service: ApiService) { }
-
+    
+    getApts(): void {
+        this.service
+            .getApts(this.month)
+            .then(appointments => this.appointments = this.appointments);
+        this.isLoading = true;
+        console.log('month in api: ' + this.month);
+        console.log('appointments: ' + this.appointments);
+    }
     onClick(m: any) {
 
+        this.month = m;
+        this.getApts();
         console.log('month: ' + m);
-        this.isLoading = true;
+        console.log('month in onclick: ' + this.month);
+        
        /* this.service.getHero(m);
         if (m) {
             this.month = m;
@@ -29,18 +40,14 @@ export class AppComponent {
             console.log("end of IF statement");
         }
     };*/
-        getHeroes(): void {
-            this.heroService
-                .getHeroes()
-                .then(heroes => this.heroes = heroes);
-        }
+       /*
        this.service.getHero((m)=> {
             if (m) {
                 this.month = m;
                 this.appointments = m;
                 this.isLoading = false;
             }
-        });
+        });*/
     }
     // onSelect function
     onSelect(o: appointment) {

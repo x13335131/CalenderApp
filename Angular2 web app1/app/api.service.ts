@@ -19,7 +19,7 @@ export class ApiService {
     }
 
 
-    getHero(month: string): Promise<AppComponent> {
+    getApts(month: string): Promise<AppComponent> {
         const url = `${this.aptUrl}?m=${month}`;
         console.log('url: '+url);
         return this.http.get(url)

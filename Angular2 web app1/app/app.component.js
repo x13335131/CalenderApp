@@ -16,25 +16,37 @@ var AppComponent = (function () {
         this.service = service;
         this.isLoading = false;
     }
-    AppComponent.prototype.onClick = function (m) {
-        console.log('month: ' + m);
-        this.isLoading = true;
-        this.service.getHero(m);
-        if (m) {
-            this.month = m;
-            this.appointments = m;
-            this.isLoading = false;
-            console.log("end of IF statement");
-        }
+    AppComponent.prototype.getApts = function () {
+        var _this = this;
+        this.service
+            .getApts(this.month)
+            .then(function (appointments) { return _this.month = _this.month; });
+        console.log('month in api: ' + this.month);
+        console.log('appointments: ' + this.appointments);
     };
-    ;
-    /*this.service.get(json => {
-        if (json) {
-            this.month = m;
-            this.appointments = json;
-            this.isLoading = false;
-        }
-    });*/
+    AppComponent.prototype.onClick = function (m) {
+        this.month = m;
+        this.getApts();
+        console.log('month: ' + m);
+        console.log('month in onclick: ' + this.month);
+        this.isLoading = true;
+        /* this.service.getHero(m);
+         if (m) {
+             this.month = m;
+             this.appointments = m;
+             this.isLoading = false;
+             console.log("end of IF statement");
+         }
+     };*/
+        /*
+        this.service.getHero((m)=> {
+             if (m) {
+                 this.month = m;
+                 this.appointments = m;
+                 this.isLoading = false;
+             }
+         });*/
+    };
     // onSelect function
     AppComponent.prototype.onSelect = function (o) {
         console.log('inside onSelect');

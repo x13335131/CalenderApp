@@ -27,7 +27,7 @@ var ApiService = (function () {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
-    ApiService.prototype.getHero = function (month) {
+    ApiService.prototype.getApts = function (month) {
         var url = this.aptUrl + "?m=" + month;
         console.log('url: ' + url);
         return this.http.get(url)
