@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import 'rxjs/add/operator/switchMap';
+import { Component,} from "@angular/core";
 import { ApiService } from "./api.service";
 
 @Component({
@@ -13,38 +14,57 @@ export class AppComponent {
     isLoading: boolean = false;
     public month: string;
     //description array
-   public appointments: Array<appointment>;
+    appointment: appointment;
+      public appointments: Array<appointment>;
+    //appointments: appointment[];
     extraAptInfo: Array<desc>;
     constructor(private service: ApiService) { }
     
     getApts(): void {
         this.service
-            .getApts(this.month)
-            .then(appointments => this.appointments = this.appointments);
-        this.isLoading = true;
+            .getApts()
+            .then(appointments => this.appointments = appointments);
+        this.isLoading = false;
         console.log('month in api: ' + this.month);
         console.log('appointments: ' + this.appointments);
     }
-    onClick(m: any) {
+   /* ngOnInit(): void {
+        this.service
+            .getApt(this.month)
+            .then(appointment => this.appointment = getApt(this.month));
+        this.isLoading = false;
+        console.log('month in api: ' + this.month);
+        console.log('appointment: ' + this.appointment);
+    }*/
+    getApt(): void {
+        this.service
+        .getApt(this.month)
+            .then(appointment => this.appointment = appointment);
 
+        this.isLoading = false;
+        console.log('month in api: ' + this.month);
+        console.log('appointment: ' + this.appointment);
+    }
+    onClick(m: any) {
+        this.isLoading = true;
         this.month = m;
-        this.getApts();
+
         console.log('month: ' + m);
         console.log('month in onclick: ' + this.month);
-        
-       /* this.service.getHero(m);
-        if (m) {
-            this.month = m;
-            this.appointments = m;
-            this.isLoading = false;
-            console.log("end of IF statement");
-        }
-    };*/
-       /*
-       this.service.getHero((m)=> {
-            if (m) {
-                this.month = m;
-                this.appointments = m;
+        this.getApt();
+       /* 
+         getHeroes(): void {
+            this.heroService
+                .getHeroes()
+                .then(heroes => this.heroes = heroes);
+            }
+
+               console.log('month: '+m);
+        this.isLoading = true;
+
+        this.service.get(json => {
+            if (json(m)) {
+                this.appointments = json(m);
                 this.isLoading = false;
             }
         });*/

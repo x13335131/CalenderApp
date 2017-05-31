@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("rxjs/add/operator/switchMap");
 var core_1 = require("@angular/core");
 var api_service_1 = require("./api.service");
 var AppComponent = (function () {
@@ -19,30 +20,48 @@ var AppComponent = (function () {
     AppComponent.prototype.getApts = function () {
         var _this = this;
         this.service
-            .getApts(this.month)
-            .then(function (appointments) { return _this.month = _this.month; });
+            .getApts()
+            .then(function (appointments) { return _this.appointments = appointments; });
+        this.isLoading = false;
         console.log('month in api: ' + this.month);
         console.log('appointments: ' + this.appointments);
     };
+    /* ngOnInit(): void {
+         this.service
+             .getApt(this.month)
+             .then(appointment => this.appointment = getApt(this.month));
+         this.isLoading = false;
+         console.log('month in api: ' + this.month);
+         console.log('appointment: ' + this.appointment);
+     }*/
+    AppComponent.prototype.getApt = function () {
+        var _this = this;
+        this.service
+            .getApt(this.month)
+            .then(function (appointment) { return _this.appointment = appointment; });
+        this.isLoading = false;
+        console.log('month in api: ' + this.month);
+        console.log('appointment: ' + this.appointment);
+    };
     AppComponent.prototype.onClick = function (m) {
+        this.isLoading = true;
         this.month = m;
-        this.getApts();
         console.log('month: ' + m);
         console.log('month in onclick: ' + this.month);
-        this.isLoading = true;
-        /* this.service.getHero(m);
-         if (m) {
-             this.month = m;
-             this.appointments = m;
-             this.isLoading = false;
-             console.log("end of IF statement");
-         }
-     };*/
+        this.getApt();
         /*
-        this.service.getHero((m)=> {
-             if (m) {
-                 this.month = m;
-                 this.appointments = m;
+          getHeroes(): void {
+             this.heroService
+                 .getHeroes()
+                 .then(heroes => this.heroes = heroes);
+             }
+ 
+                console.log('month: '+m);
+         this.isLoading = true;
+ 
+         this.service.get(json => {
+             if (json(m)) {
+                 this.appointments = json(m);
                  this.isLoading = false;
              }
          });*/
