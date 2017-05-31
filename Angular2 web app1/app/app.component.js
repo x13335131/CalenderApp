@@ -17,16 +17,24 @@ var AppComponent = (function () {
         this.isLoading = false;
     }
     AppComponent.prototype.onClick = function (m) {
-        var _this = this;
         console.log('month: ' + m);
         this.isLoading = true;
-        this.service.get(function (json) {
-            if (json(m)) {
-                _this.appointments = json(m);
-                _this.isLoading = false;
-            }
-        });
+        this.service.getHero(m);
+        if (m) {
+            this.month = m;
+            this.appointments = m;
+            this.isLoading = false;
+            console.log("end of IF statement");
+        }
     };
+    ;
+    /*this.service.get(json => {
+        if (json) {
+            this.month = m;
+            this.appointments = json;
+            this.isLoading = false;
+        }
+    });*/
     // onSelect function
     AppComponent.prototype.onSelect = function (o) {
         console.log('inside onSelect');

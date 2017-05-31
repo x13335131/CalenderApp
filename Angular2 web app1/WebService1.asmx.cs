@@ -60,25 +60,25 @@ namespace Angular2_web_app1
                         monthNumber = 5;
                         break;
                     case "june":
-                        monthNumber = 5;
+                        monthNumber = 6;
                         break;
                     case "july":
-                        monthNumber = 5;
+                        monthNumber = 7;
                         break;
                     case "aug":
-                        monthNumber = 5;
+                        monthNumber = 8;
                         break;
                     case "sept":
-                        monthNumber = 5;
+                        monthNumber = 9;
                         break;
                     case "oct":
-                        monthNumber = 5;
+                        monthNumber = 10;
                         break;
                     case "nov":
-                        monthNumber = 5;
+                        monthNumber = 11;
                         break;
                     case "dec":
-                        monthNumber = 5;
+                        monthNumber = 12;
                         break;
                 default:
                     errorMessage = "no appointments in " + m;

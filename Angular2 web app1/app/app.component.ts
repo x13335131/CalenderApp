@@ -11,22 +11,37 @@ import { ApiService } from "./api.service";
 
 export class AppComponent {
     isLoading: boolean = false;
+    public month: string;
     //description array
     appointments: Array<appointment>;
     extraAptInfo: Array<desc>;
     constructor(private service: ApiService) { }
-    
+
     onClick(m: any) {
-        console.log('month: '+m);
+
+        console.log('month: ' + m);
         this.isLoading = true;
-        this.service.get(json => {
-            if (json(m)) {
-                this.appointments = json(m);
+       /* this.service.getHero(m);
+        if (m) {
+            this.month = m;
+            this.appointments = m;
+            this.isLoading = false;
+            console.log("end of IF statement");
+        }
+    };*/
+        getHeroes(): void {
+            this.heroService
+                .getHeroes()
+                .then(heroes => this.heroes = heroes);
+        }
+       this.service.getHero((m)=> {
+            if (m) {
+                this.month = m;
+                this.appointments = m;
                 this.isLoading = false;
             }
         });
     }
-
     // onSelect function
     onSelect(o: appointment) {
         console.log('inside onSelect');

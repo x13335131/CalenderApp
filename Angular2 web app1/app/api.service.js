@@ -15,10 +15,25 @@ var core_1 = require("@angular/core");
 var ApiService = (function () {
     function ApiService(http) {
         this.http = http;
+        this.aptUrl = "webservice1.asmx/GetAppointmentsJSON";
     }
-    ApiService.prototype.get = function (onNext) {
-        this.http.get("webservice1.asmx/GetAppointmentsJSON?m=" + http_1.Http).map(function (response) { return response.json(); }).subscribe(onNext);
-        // this.http.get("webservice1.asmx/GetAppointmentsJSON?m=jan").map(response => response.json()).subscribe(onNext);
+    /*   get(onNext: (json: any) => void) {
+           
+           this.http.get("webservice1.asmx/GetAppointmentsJSON?m=${month}").map(response => response.json()).subscribe(onNext);
+          //this.http.get("webservice1.asmx/GetAppointmentsJSON?m=jan").map(response => response.json()).subscribe(onNext);
+           
+       }*/
+    ApiService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    };
+    ApiService.prototype.getHero = function (month) {
+        var url = this.aptUrl + "?m=" + month;
+        console.log('url: ' + url);
+        return this.http.get(url)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
     };
     return ApiService;
 }());
